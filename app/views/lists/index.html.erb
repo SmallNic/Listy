@@ -1,0 +1,31 @@
+<% @lists.each do |list| %>
+    <div class="list">
+      <%= link_to(list.title.upcase, list_path(list), method: :get) %>
+    </div>
+  </a>
+<% end %>
+
+<div class="new_button">
+  <%= button_to 'Add New List', new_list_path, method: :get %>
+</div>
+
+
+
+
+<script>
+  var list = $(".list")
+
+  for(var i=0; i <list.length; i++){
+    $(list[i]).on("mouseover", function (event){
+      $(this).css("background","purple")
+      $(this).css("text-shadow","1px 1px 2px white")
+
+    })
+
+    $(list[i]).on("mouseout", function (event){
+      $(this).css("background","white")
+      $(this).css("text-shadow","0px 0px 0px")
+
+    })
+  }
+</script>

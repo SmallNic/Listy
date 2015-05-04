@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: MyText
+  due_date: 2015-05-03 22:43:49
+  completed: false
+  List_id: 
+
+two:
+  description: MyText
+  due_date: 2015-05-03 22:43:49
+  completed: false
+  List_id: 

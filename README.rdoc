@@ -1,28 +1,22 @@
-== README
+Listy App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+- Ruby version 2.2.0
+- Rails version 4.2.1
+- User Stories: https://trello.com/b/Zy4rdqPH/project-listy
 
-Things you may want to cover:
+This Listy application allows a user to create lists and populate that list with whatever items they wish.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+When starting the application, a user can:
+- See the titles of all the Lists they've created
+- Choose a particular open list to look at
+- View the archived lists
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+When a user chooses a particular list, he/she can:
+- Edit the title of the list
+- Archive the list
+
+- Add an item to the list
+- Edit an item on the list
+- Remove an item from the list
+- Complete an item on the list (strikethrough)

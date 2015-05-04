@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  due_date: 2015-05-03 22:35:33
+  archived: false
+
+two:
+  title: MyString
+  due_date: 2015-05-03 22:35:33
+  archived: false
