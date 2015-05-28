@@ -9,7 +9,10 @@
       <% @list.items.each do |item| %>
         <div class="items_list">
           <ul>
-            <li><%= item.description %></li>
+            <li><%= item.description %>
+                <%= button_to 'Delete', list_item_path(@list, item), method: :delete, class:"itemButton" %></li>
+                <%= button_to 'Edit', edit_list_item_path(@list, item), method: :get, class:"itemButton" %></li>
+
           </ul>
         </div>
       <% end %>

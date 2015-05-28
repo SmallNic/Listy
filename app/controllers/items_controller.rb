@@ -24,12 +24,22 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @item = Item.find(params[:id])
+
   end
 
   def update
+    # @list = List.find(params[:id])
+    # @list.update!(list_params)
+    # redirect_to '/'
+
   end
 
   def destroy
+    item = Item.find(params[:id])
+    list = List.find(item.list_id)
+    item.destroy
+    redirect_to list
   end
 
   private
