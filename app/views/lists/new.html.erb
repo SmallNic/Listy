@@ -1,16 +1,19 @@
-<div class = "new_list_form">
+<nav></nav>
 
-  <h2>Create New List:</h2>
+<main>
+  <div class = "new_list_form">
 
-  <%= form_for @list, url: {action: "create"} do |f| %>
-    <p>
-      <%= f.label :title, "Title:"%><br>
-      <%= f.text_field :title, :size=>"52" %>
-    </p>
+    <h2>Create New List:</h2>
 
-    <p>
-      <%= f.submit value: "Submit"%>
-    </p>
+    <%= form_for @list, url: {action: "create"} do |f| %>
+      <p>
+        <%= f.text_field :title, :size=>"52", :placeholder=>"List Title" %>
+      </p>
 
-  <% end %>
-</div>
+      <p>
+        <%= f.submit value: "Submit"%>
+      </p>
+
+    <% end %>
+  </div>
+</main>

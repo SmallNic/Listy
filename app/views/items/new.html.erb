@@ -1,18 +1,21 @@
-<div class = "new_item_form">
+<nav></nav>
 
-  <h2>Create New List:</h2>
+<main>
+  <div class = "new_item_form">
 
-  <%= form_for @item, url: {action: "create"} do |f| %>
+    <h2>Create New List Item:</h2>
 
-    <p>
-      <%= f.label :description, "Description:"%><br>
-      <%= f.text_area :description, :size=>"50x10" %>
-      <%= f.hidden_field :list_id, { :value => @list.id }  %>
-    </p>
+    <%= form_for @item, url: {action: "create"} do |f| %>
 
-    <p>
-      <%= f.submit value: "Submit"%>
-    </p>
+      <p>
+        <%= f.text_area :description, :size=>"50x10" %>
+        <%= f.hidden_field :list_id, { :value => @list.id }  %>
+      </p>
 
-  <% end %>
-</div>
+      <p>
+        <%= f.submit value: "Submit"%>
+      </p>
+
+    <% end %>
+  </div>
+</main>

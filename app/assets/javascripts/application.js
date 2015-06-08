@@ -11,6 +11,26 @@
 // about supported directives.
 //
 // = require jquery
-// //= require jquery_ujs
-// //= require turbolinks
+//= require jquery_ujs
+//= require turbolinks
 // = require_tree .
+
+$(document).ready(function(){
+
+  console.log("jQuery is working")
+
+  var list = $(".list")
+
+  for(var i=0; i <list.length; i++){
+    $(list[i]).on("mouseover", function (event){
+      $(this).css("background","#ff5779")
+      // $(this).css("text-shadow","1px 1px 2px white")
+    })
+
+    $(list[i]).on("mouseout", function (event){
+      $(this).css("background","white")
+      // $(this).css("text-shadow","0px 0px 0px")
+    })
+  }
+
+})

@@ -1,26 +1,38 @@
-
-<div class ="list_item">
-
-  <div class = "title">
-    <%= @list.title %>
+<nav>
+  <div class="options">
+    <%= button_to 'Add New List Item', new_list_item_path(@list), method: :get, class: "option-button" %>
+    <%= button_to 'Edit List Title', edit_list_path(@list), method: :get, class: "option-button" %>
   </div>
+</nav>
 
-  <div class = "items">
-      <% @list.items.each do |item| %>
-        <div class="items_list">
-          <ul>
-            <li><%= item.description %>
-                <%= button_to 'Delete', list_item_path(@list, item), method: :delete, class:"itemButton" %></li>
-                <%= button_to 'Edit', edit_list_item_path(@list, item), method: :get, class:"itemButton" %></li>
+<main>
+  <div class ="list_items">
 
-          </ul>
-        </div>
-      <% end %>
+    <div class = "title row">
+      <%= @list.title %>
+    </div>
+
+    <div class = "items row">
+      <ol>
+        <% @list.items.each do |item| %>
+          <li class="row">
+
+            <div class="column column-6 list_item">
+              <%= item.description %>
+            </div>
+
+            <div class="column column-3 list_button">
+              <%= button_to 'Delete', list_item_path(@list, item), method: :delete, class:"itemButton" %>
+            </div>
+
+            <div class="column column-3 list_button">
+              <%= button_to 'Edit', edit_list_item_path(@list, item), method: :get, class:"itemButton" %>
+            </div>
+
+          </li>
+        <% end %>
+      </ol>
+    </div>
+
   </div>
-
-</div>
-
-<div class="new_button">
-  <%= button_to 'Add New List Item', new_list_item_path(@list), method: :get %>
-  <%= button_to 'Edit List Title', edit_list_path(@list), method: :get %>
-</div>
+</main>
