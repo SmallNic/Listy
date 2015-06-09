@@ -13,9 +13,8 @@
     </div>
 
     <div class = "items row">
-      <ol>
         <% @list.items.each do |item| %>
-          <li class="row">
+          <div class="row item">
 
             <div class="column column-6 list_item">
               <%= item.description %>
@@ -29,9 +28,8 @@
               <%= button_to 'Edit', edit_list_item_path(@list, item), method: :get, class:"itemButton" %>
             </div>
 
-          </li>
+          </div>
         <% end %>
-      </ol>
     </div>
 
   </div>

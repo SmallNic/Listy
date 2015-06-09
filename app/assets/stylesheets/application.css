@@ -93,6 +93,12 @@ nav {
   display:inline-block;
 }
 
+.item {
+  border-bottom: solid 1px #ff5779;
+  margin: 2% 0;
+  padding-bottom:2%;
+}
+
 /**************** New List Item Form ****************/
 
 .new_item_form {
