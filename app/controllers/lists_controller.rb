@@ -19,6 +19,11 @@ class ListsController < ApplicationController
 
   def show
     @list = List.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @list }
+    end
   end
 
   def edit
@@ -28,7 +33,21 @@ class ListsController < ApplicationController
   def update
     @list = List.find(params[:id])
     @list.update!(list_params)
-    redirect_to '/'
+    respond_to do |format|
+      format.html { '/' }
+      format.json { render json: @list } #this is the response for the AJAX call.
+    end
+
+    # respond_to do |format|
+    #   if @list.update_attributes(list_params)
+    #     format.html { redirect_to '/'}
+    #     format.json { head :no_content }
+    #   else
+    #     format.html { render action: "edit" }
+    #     format.json { render json: @image.errors, status: :unprocessable_entity }
+    #   end
+    # end
+
   end
 
   def destroy
@@ -40,7 +59,7 @@ class ListsController < ApplicationController
   private
 
   def list_params
-    return params[:list].permit(:title)
+    return params[:list].permit(:title, :position_y, :position_x)
   end
 
 

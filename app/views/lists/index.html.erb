@@ -6,6 +6,12 @@
 
 <main>
   <% @lists.each do |list| %>
-      <%= link_to(list.title.upcase, list_path(list), method: :get, class: "list" ) %>
+    <% if list.position_x.nil? or list.position_y.nil? %>
+      <%= link_to(list.title.upcase, list_path(list), method: :get, class: "list", id:"#{list.id}" ) %>
+    <% else %>
+      <%= link_to(list.title.upcase, list_path(list), method: :get, class: "list", id:"#{list.id}", style:"position:absolute; top:#{list.position_y}px;left:#{list.position_x}px; " ) %>
+    <% end %>
+
+
   <% end %>
 </main>
