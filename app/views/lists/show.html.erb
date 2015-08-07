@@ -20,10 +20,25 @@
             <div class="list_item">
               <span class="wrapper">
               <%= button_to "x", list_item_path(@list, item), method: :delete, class:"delete" %>
-              <p class="deleteDescrip">DELETE ME</p>
+              <p class="hoverCaption">DELETE ME</p>
               </span>
 
-              <%= link_to item.description, edit_list_item_path(@list, item)%>
+              <span class="checkWrapper">
+
+                <span class="markComplete" id="<%=item.id%>">&#10003;
+                  <p class="hoverCaption">COMPLETE ME</p>
+                </span>
+
+                <span class="editItem">
+                  <p class="hoverCaption">EDIT ME</p>
+                  <% if item.completed %>
+                    <%= link_to item.description, edit_list_item_path(@list, item), class:"itemText itemComplete"%>
+                  <% else %>
+                    <%= link_to item.description, edit_list_item_path(@list, item), class:"itemText"%>
+                  <% end %>
+                </span>
+
+              </span>
             </div>
 
           </div>

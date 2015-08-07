@@ -11,6 +11,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
+    @item.completed = false
     if @item.save
       redirect_to "/lists/#{params[:list_id]}"
     else
@@ -19,20 +20,31 @@ class ItemsController < ApplicationController
 
   end
 
+
+  # t.datetime "due_date"
+  # t.boolean  "completed"
+
   def show
     @item = Item.find(params[:id])
+    render json: @item
   end
 
   def edit
     @list = List.find(params[:list_id])
     @item = Item.find(params[:id])
-
   end
 
   def update
-    # @list = List.find(params[:id])
-    # @list.update!(list_params)
-    # redirect_to '/'
+    @item = Item.find(params[:id])
+    @item.update!(item_params)
+    @list = List.find(@item.list_id)
+    # redirect_to list_path(@list)
+    # redirect_to :controller => "lists", :action => "show", :id => @list.id
+    respond_to do |format|
+      format.html { redirect_to(list_path(@list)) }
+      format.json { render json: @list } #this is the response for the AJAX call.
+    end
+
 
   end
 
@@ -45,7 +57,7 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    return params[:item].permit(:description, :list_id)
+    return params[:item].permit(:description, :list_id, :completed)
   end
 
 

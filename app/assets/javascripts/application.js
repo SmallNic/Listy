@@ -19,6 +19,52 @@ $(document).ready(function(){
 
   console.log("jQuery is working")
 
+  $(".checkWrapper").on("click", ".markComplete",  function(){
+    $(this).siblings().toggleClass("itemComplete");
+    var id = this.id;
+    // console.log("this = ", this)
+    // console.log("id = ", id)
+    var status;
+
+    $.ajax({
+      type: 'GET',
+      dataType: 'json',
+      url: "/items/" + id
+    }).done(function( response ) {
+      // console.log("response", response)
+      status = response.completed
+      updateStatus(status, id)
+    }).fail(function(){
+      // console.log("failure")
+    })
+
+  });
+
+
+  function updateStatus(status, id){
+    newStatus = status ? false : true
+    // console.log("oldStatus = ", status)
+    // console.log("newStatus = ", newStatus)
+
+    $.ajax({
+      type: 'PUT',
+      dataType: 'json',
+      data: {item:{"completed":newStatus}},
+      url: "/items/" + id
+    }).done(function() {
+      // console.log("success")
+    }).fail(function(){
+      // console.log("failure")
+    })
+  }
+
+  // type: 'POST', // Use POST with X-HTTP-Method-Override or a straight PUT if appropriate.
+  // dataType: 'json', // Set datatype - affects Accept header
+  // url: "http://example.com/people/1", // A valid URL
+  // headers: {"X-HTTP-Method-Override": "PUT"}, // X-HTTP-Method-Override set to PUT.
+  // data: '{"name": "Dave"}'
+
+
   var list = $(".list")
 
   for(var i=0; i <list.length; i++){

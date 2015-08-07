@@ -135,7 +135,7 @@ nav {
   display:inline;
 }
 
-.deleteDescrip {
+.hoverCaption {
   font-size:5em;
   position: absolute;
   top: 40%;
@@ -143,7 +143,8 @@ nav {
   left: 35%;
   right: 0;
   background: none;
-  color: #fff;
+  color: grey;
+  text-shadow: 1px 1px 1px white;
   visibility: hidden;
   opacity: 0;
 
@@ -152,7 +153,30 @@ nav {
   */
 }
 
-.wrapper:hover .deleteDescrip {
+.wrapper:hover .hoverCaption {
+  visibility: visible;
+  opacity: .7;
+}
+
+.markComplete {
+  cursor: pointer;
+  color:green;
+}
+
+.markComplete:hover .hoverCaption {
+  visibility: visible;
+  opacity: .7;
+}
+
+.itemText{
+  margin-left:10px;
+}
+
+.itemComplete {
+  text-decoration: line-through;
+}
+
+.editItem:hover .hoverCaption {
   visibility: visible;
   opacity: .7;
 }
