@@ -1,0 +1,12 @@
+<%= form_for @list do |f| %>
+  <p>
+    <%= f.text_field :title, :size=>"52", :placeholder=>"List Title" %>
+  </p>
+
+  <p>
+    <%= f.submit value: "Submit"%>
+  </p>
+
+<% end %>
+
+<%= button_to "Cancel", :back, method: :get %>

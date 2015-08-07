@@ -1,0 +1,15 @@
+<%= form_for [@list, @item] do |f| %>
+
+  <p>
+    <%= f.text_area :description, :size=>"50x10" %>
+    <%= f.hidden_field :list_id, { :value => @list.id }  %>
+  </p>
+
+  <p>
+
+    <%= f.submit value: "Submit"%>
+  </p>
+
+<% end %>
+
+<%= button_to "Cancel", :back, method: :get %>

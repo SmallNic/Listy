@@ -5,17 +5,7 @@
 
     <h2>Create New List Item:</h2>
 
-    <%= form_for @item, url: {action: "create"} do |f| %>
-
-      <p>
-        <%= f.text_area :description, :size=>"50x10" %>
-        <%= f.hidden_field :list_id, { :value => @list.id }  %>
-      </p>
-
-      <p>
-        <%= f.submit value: "Submit"%>
-      </p>
-
-    <% end %>
+    <%= render 'form' %>
+    
   </div>
 </main>

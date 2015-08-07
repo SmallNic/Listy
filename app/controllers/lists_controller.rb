@@ -33,10 +33,13 @@ class ListsController < ApplicationController
   def update
     @list = List.find(params[:id])
     @list.update!(list_params)
-    respond_to do |format|
-      format.html { '/' }
-      format.json { render json: @list } #this is the response for the AJAX call.
-    end
+    redirect_to '/'
+
+    # binding.pry
+    # respond_to do |format|
+    #   format.html { '/' }
+    #   format.json { render json: @list } #this is the response for the AJAX call.
+    # end
 
     # respond_to do |format|
     #   if @list.update_attributes(list_params)

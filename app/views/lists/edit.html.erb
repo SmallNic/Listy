@@ -2,15 +2,6 @@
 
   <h2>Edit List:</h2>
 
-  <%= form_for @list, url: {action: "update"} do |f| %>
-    <p>
-      <%= f.label :title, "Title:"%><br>
-      <%= f.text_field :title, :size=>"52" %>
-    </p>
+  <%= render 'form' %>
 
-    <p>
-      <%= f.submit value: "Submit"%>
-    </p>
-
-  <% end %>
 </div>

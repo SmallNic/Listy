@@ -2,6 +2,7 @@
   <div class="options">
     <%= button_to 'Add New List Item', new_list_item_path(@list), method: :get, class: "option-button" %>
     <%= button_to 'Edit List Title', edit_list_path(@list), method: :get, class: "option-button" %>
+    <%= button_to 'Delete List', list_path(@list), method: :delete, class: "option-button" %>
   </div>
 </nav>
 
@@ -16,16 +17,13 @@
         <% @list.items.each do |item| %>
           <div class="row item">
 
-            <div class="column column-6 list_item">
-              <%= item.description %>
-            </div>
+            <div class="list_item">
+              <span class="wrapper">
+              <%= button_to "x", list_item_path(@list, item), method: :delete, class:"delete" %>
+              <p class="deleteDescrip">DELETE ME</p>
+              </span>
 
-            <div class="column column-3 list_button">
-              <%= button_to 'Delete', list_item_path(@list, item), method: :delete, class:"itemButton" %>
-            </div>
-
-            <div class="column column-3 list_button">
-              <%= button_to 'Edit', edit_list_item_path(@list, item), method: :get, class:"itemButton" %>
+              <%= link_to item.description, edit_list_item_path(@list, item)%>
             </div>
 
           </div>
